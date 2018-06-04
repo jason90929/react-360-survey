@@ -1,14 +1,12 @@
-import React from 'react';
+import React from 'react'
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-360';
+  StyleSheet
+} from 'react-360'
 import Banner from './components/banner'
 
 export default class vrlive_viewer extends React.Component {
-  render() {
+  render () {
     return (
       <Banner/>
     )
@@ -22,17 +20,17 @@ const styles = StyleSheet.create({
     height: 600,
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   greetingBox: {
     padding: 20,
     backgroundColor: '#000000',
     borderColor: '#639dda',
-    borderWidth: 2,
+    borderWidth: 2
   },
   greeting: {
-    fontSize: 30,
-  },
-});
+    fontSize: 30
+  }
+})
 
-AppRegistry.registerComponent('vrlive_viewer', () => vrlive_viewer);
+AppRegistry.registerComponent('vrlive_viewer', () => vrlive_viewer)

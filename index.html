@@ -1,40 +1,42 @@
 <html>
-  <head>
-    <title>vrlive_viewer</title>
-    <style>body { margin: 0; }</style>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  </head>
-  <style>
-    .outside-div {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
+<head>
+  <title>vrlive_viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+<style>
+  body {
+    margin: 0;
+  }
+  .outside-div {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+</style>
+<body>
+<!-- Attachment point for your app -->
+<div id="container"></div>
+<div class="outside-div">
+  <button id="change-panorama1">人行磚造景</button>
+  <button id="change-panorama2">樹林panorama</button>
+</div>
+<script src="./client.bundle?platform=vr"></script>
+<script>
+  // Initialize the React 360 application
+  React360.init(
+    'index.bundle?platform=vr&dev=true',
+    document.getElementById('container'),
+    {
+      assetRoot: 'static_assets/'
     }
-  </style>
-  <body>
-    <!-- Attachment point for your app -->
-    <div id="container"></div>
-    <div class="outside-div">
-      <button id="change-panorama1">人行磚造景</button>
-      <button id="change-panorama2">樹林panorama</button>
-    </div>
-    <script src="./client.bundle?platform=vr"></script>
-    <script>
-      // Initialize the React 360 application
-      React360.init(
-        'index.bundle?platform=vr&dev=true',
-        document.getElementById('container'),
-        {
-          assetRoot: 'static_assets/',
-        }
-      );
-      document.getElementById('change-panorama1').addEventListener('click', function () {
-        React360.setBackground('static_assets/人行磚造景.jpg')
-      })
-      document.getElementById('change-panorama2').addEventListener('click', function () {
-        React360.setBackground('static_assets/樹林panorama.jpg')
-      })
-    </script>
-  </body>
+  )
+  document.getElementById('change-panorama1').addEventListener('click', function () {
+    React360.setBackground('static_assets/人行磚造景.jpg')
+  })
+  document.getElementById('change-panorama2').addEventListener('click', function () {
+    React360.setBackground('static_assets/樹林panorama.jpg')
+  })
+</script>
+</body>
 </html>
 

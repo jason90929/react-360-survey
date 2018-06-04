@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   AppRegistry,
   StyleSheet,
@@ -6,7 +6,7 @@ import {
   Text,
   View,
   VrButton
-} from 'react-360';
+} from 'react-360'
 
 export default class banner extends React.Component {
   constructor () {
@@ -45,7 +45,7 @@ export default class banner extends React.Component {
     })
   }
 
-  render() {
+  render () {
     let combineStyle = [styles.banner]
     if (this.state.buttonOpacity) {
       combineStyle.push(styles.buttonOpacity)
@@ -72,9 +72,9 @@ export default class banner extends React.Component {
           </Text>
         </VrButton>
       </View>
-    );
+    )
   }
-};
+}
 
 const styles = StyleSheet.create({
   banner: {
@@ -91,7 +91,9 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   buttonLarge: {
-    transform: [{ scale: 1.1 }]
+    transform: [{
+      scale: 1.1
+    }]
   },
   image: {
     width: '100%',
@@ -111,6 +113,6 @@ const styles = StyleSheet.create({
     left: 15,
     color: 'yellow'
   }
-});
+})
 
-AppRegistry.registerComponent('banner', () => banner);
+AppRegistry.registerComponent('banner', () => banner)
