@@ -60,15 +60,16 @@ export default class banner extends React.Component {
           onExit={this.handleExitBanner}
           onButtonPress={this.handleButtonPressBanner}
           onButtonRelease={this.handleButtonReleaseBanner}>
+          <Image
+            style={styles.image}
+            source={{ uri: 'http://localhost:8081/static_assets/hamburger-banner.jpg' }}
+          />
           <Text style={styles.title}>
             Hamburger
           </Text>
           <Text style={styles.text}>
             US 14.99
           </Text>
-          <Image
-            style={styles.image}
-            source={{ uri: 'http://localhost:8081/static_assets/hamburger-banner.jpg' }} />
         </VrButton>
       </View>
     );
@@ -77,13 +78,14 @@ export default class banner extends React.Component {
 
 const styles = StyleSheet.create({
   banner: {
-    // Fill the entire surface
     width: 400,
     height: 200,
-    opacity: .7,
+    opacity: .9,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    top: 40,
+    left: 200
   },
   buttonOpacity: {
     opacity: 1
@@ -92,16 +94,22 @@ const styles = StyleSheet.create({
     transform: [{ scale: 1.1 }]
   },
   image: {
-    width: 400,
-    height: 200,
-    justifyContent: 'center',
-    alignItems: 'center'
+    width: '100%',
+    height: '100%'
   },
   title: {
-    fontSize: 20
+    fontSize: 30,
+    position: 'absolute',
+    top: 15,
+    left: 15,
+    color: 'yellow'
   },
   text: {
-    fontSize: 16
+    fontSize: 24,
+    position: 'absolute',
+    top: 60,
+    left: 15,
+    color: 'yellow'
   }
 });
 
