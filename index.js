@@ -5,18 +5,13 @@ import {
   Text,
   View,
 } from 'react-360';
+import Banner from './components/banner'
 
 export default class vrlive_viewer extends React.Component {
   render() {
     return (
-      <View style={styles.panel}>
-        <View style={styles.greetingBox}>
-          <Text style={styles.greeting}>
-            Welcome to React 360
-          </Text>
-        </View>
-      </View>
-    );
+      <Banner/>
+    )
   }
 };
 
