@@ -2,6 +2,7 @@
 // If you want to modify your application's content, start in "index.js"
 
 import { ReactInstance } from 'react-360-web'
+// import { AsyncStorage } from 'react-native'
 
 let r360
 
@@ -18,9 +19,31 @@ function init (bundle, parent, options = {}) {
     r360.getDefaultSurface()
   )
 
+  // console.log('AsyncStorage', AsyncStorage)
+  // persistAllPanoramas([
+  //   r360.getAssetURL('人行磚造景.jpg'),
+  //   r360.getAssetURL('樹林panorama.jpg'),
+  //   r360.getAssetURL('hamburger-banner.jpg')
+  // ]).then(resp => {
   // Load the initial environment
   setBackground(r360.getAssetURL('樹林panorama.jpg'))
+  // })
 }
+
+// function persistAllPanoramas (panoramas) {
+// // Persisting data
+//   return new Promise(resolve => {
+//     try {
+//       console.log('AsyncStorage12')
+//       AsyncStorage.multiSet('my-panoramas', panoramas).then((resp) => {
+//         resolve()
+//       })
+//     } catch (error) {
+//       console.error('persistAllPanoramas failed', error)
+//       // Error saving data
+//     }
+//   })
+// }
 
 function setBackground (imageUrl, options) {
   options = options || {

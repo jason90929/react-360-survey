@@ -8,7 +8,7 @@ import Banner from './components/banner'
 export default class vrlive_viewer extends React.Component {
   render () {
     return (
-      <Banner/>
+      <Banner />
     )
   }
 };
