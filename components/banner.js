@@ -1,6 +1,8 @@
 import React from 'react'
 import {
   AppRegistry,
+  AsyncStorage,
+  Environment,
   StyleSheet,
   Image,
   Text,
@@ -12,6 +14,7 @@ export default class banner extends React.Component {
   constructor () {
     super()
     this.state = {
+      banner: { uri: '' },
       buttonOpacity: false,
       buttonLarge: false
     }
@@ -19,6 +22,14 @@ export default class banner extends React.Component {
     this.handleExitBanner = this.handleExitBanner.bind(this)
     this.handleButtonPressBanner = this.handleButtonPressBanner.bind(this)
     this.handleButtonReleaseBanner = this.handleButtonReleaseBanner.bind(this)
+  }
+
+  componentDidMount () {
+    AsyncStorage.getItem('banner').then(resp => {
+      this.setState({
+        banner: resp
+      })
+    })
   }
 
   handleEnterBanner (e) {
@@ -40,6 +51,12 @@ export default class banner extends React.Component {
   }
 
   handleButtonReleaseBanner (e) {
+    AsyncStorage.getItem('p1').then(resp => {
+      Environment.setBackgroundImage(
+        resp,
+        { format: '2D' } /* one of the formats mentioned above */
+      )
+    })
     this.setState({
       buttonLarge: false
     })
@@ -62,7 +79,7 @@ export default class banner extends React.Component {
           onButtonRelease={this.handleButtonReleaseBanner}>
           <Image
             style={styles.image}
-            source={{ uri: 'http://localhost:8081/static_assets/hamburger-banner.jpg' }}
+            source={this.state.banner}
           />
           <Text style={styles.title}>
             Hamburger
