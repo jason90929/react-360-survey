@@ -1,15 +1,49 @@
 import React from 'react'
 import {
   AppRegistry,
+  asset,
+  Environment,
+  NativeModules,
   StyleSheet
 } from 'react-360'
+const { AsyncLocalStorage } = NativeModules
 import Banner from './components/banner'
 
 export default class vrlive_viewer extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      isAppReady: false
+    }
+  }
+
+  componentDidMount () {
+    AsyncLocalStorage.multiSet([
+      ['p1', asset('人行磚造景.jpg')],
+      ['p2', asset('樹林panorama.jpg')],
+      ['p3', asset('hamburger-banner.jpg')]
+    ], (resp) => {
+      // console.log('load completed', resp)
+      Environment.setBackgroundImage(
+        asset('樹林panorama.jpg'),
+        { format: '2D' } /* one of the formats mentioned above */
+      )
+      this.setState({
+        isAppReady: true
+      })
+      // AsyncLocalStorage.getAllKeys(resp => {
+      //   console.log('resp', resp)
+      // })
+    })
+  }
+
   render () {
-    return (
-      <Banner />
-    )
+    if (this.state.isAppReady) {
+      return (
+        <Banner/>
+      )
+    }
+    return null
   }
 };
 

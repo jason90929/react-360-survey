@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   AppRegistry,
-  Environment,
   StyleSheet,
   Image,
   Text,
@@ -41,10 +40,6 @@ export default class banner extends React.Component {
   }
 
   handleButtonReleaseBanner (e) {
-    Environment.setBackgroundImage(
-      'static_assets/人行磚造景.jpg',
-      { format: '2D' } /* one of the formats mentioned above */
-    )
     this.setState({
       buttonLarge: false
     })
